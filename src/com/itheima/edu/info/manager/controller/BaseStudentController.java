@@ -11,12 +11,12 @@ import java.util.Scanner;
  * @Description：com.itheima.edu.info.manager.controller
  * @version：1.0
  */
-public class BaseStudentController {
+public abstract class BaseStudentController {
     private StudentService studentService = new StudentService();
     private Scanner sc = new Scanner(System.in);
 
     // 开启学生管理系统，并展示学生管理系统菜单
-    public void start() {
+    public final void start() {
         studentLoop:
         while (true) {
             // 学生菜单搭建
@@ -26,8 +26,7 @@ public class BaseStudentController {
             switch (choice) {
                 case "1":
                     // System.out.println("添加");
-                    OtherStudentController studentController = new OtherStudentController();
-                    studentController.start();
+                    addStudent();
                     break;
                 case "2":
                     // System.out.println("删除");
@@ -51,7 +50,7 @@ public class BaseStudentController {
         }
     }
 
-    public void updateStudent() {
+    public final void updateStudent() {
         String updateId = inputStudentId();
         // 2. 将学生信息封装为学生对象
         Student newStu = inputStudentInfo(updateId);
@@ -60,7 +59,7 @@ public class BaseStudentController {
 
     }
 
-    public void deleteStudentById() {
+    public final void deleteStudentById() {
         String delId = inputStudentId();
         // 3. 调用业务员中的deleteStudentById根据id，删除学生
         studentService.deleteStudentById(delId);
@@ -68,7 +67,7 @@ public class BaseStudentController {
       System.out.println("删除成功");
     }
 
-    public void findAllStudent() {
+    public final void findAllStudent() {
         // 1. 调用业务员中的方法，得到学生的对象数组
         Student[] stus = studentService.findAllStudent();
         // 2. 判断数组的内存地址，是否为null
@@ -87,7 +86,7 @@ public class BaseStudentController {
         }
     }
 
-    public void addStudent() {
+    public final void addStudent() {
         // 1. 键盘接受学生信息
         String id = null;
         while (true) {
@@ -129,7 +128,5 @@ public class BaseStudentController {
 
     // 键盘录入学生信息
     // 开闭原则：对扩展内容开放，对修改内容关闭
-    public Student inputStudentInfo(String id){
-        return null;
-    }
+    public abstract Student inputStudentInfo(String id);
 }
