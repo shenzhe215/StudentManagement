@@ -11,6 +11,18 @@ import com.itheima.edu.info.manager.domain.Student;
 public class StudentDao {
     // 1. 创建学生对象数组
     private static Student[] stus = new Student[5];
+    // 静态代码块，初始化一些学生信息
+    static {
+        Student stu1 = new Student("张三","jason001","1998-12-5","23");
+        Student stu2 = new Student("李四","jason002","1998-12-5","23");
+        Student stu3 = new Student("王五","jason003","1998-12-5","23");
+        Student stu4 = new Student("赵六","jason004","1998-12-5","23");
+
+        stus[0] = stu1;
+        stus[1] = stu2;
+        stus[2] = stu3;
+        stus[3] = stu4;
+    }
 
     public boolean addStudent(Student stu) {
 
