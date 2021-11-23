@@ -1,7 +1,8 @@
 package com.itheima.edu.info.manager.service;
 
-import com.itheima.edu.info.manager.dao.OtherStudentDao;
+import com.itheima.edu.info.manager.dao.BaseStudentDao;
 import com.itheima.edu.info.manager.domain.Student;
+import com.itheima.edu.info.manager.factory.StudentDaoFactory;
 
 /**
  * @Author: shenz
@@ -11,7 +12,10 @@ import com.itheima.edu.info.manager.domain.Student;
  */
 public class StudentService {
     // 1. 创建StudentDao（库管）
-    private OtherStudentDao studentDao = new OtherStudentDao();
+    // private OtherStudentDao studentDao = new OtherStudentDao();
+
+    // 通过学生库管对象类，获取库管对象
+    private BaseStudentDao studentDao = StudentDaoFactory.getStudentDao();
 
     public boolean addStudent(Student stu) {
         // 2. 将学生对象，传递给StudentDao库管中的addStudent方法
