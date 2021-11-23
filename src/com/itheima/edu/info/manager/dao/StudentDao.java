@@ -8,7 +8,7 @@ import com.itheima.edu.info.manager.domain.Student;
  * @Description：com.itheima.edu.info.manager.dao
  * @version：1.0
  */
-public class StudentDao {
+public class StudentDao extends BaseStudentDao{
     // 1. 创建学生对象数组
     private static Student[] stus = new Student[5];
     // 静态代码块，初始化一些学生信息
@@ -24,6 +24,7 @@ public class StudentDao {
         stus[3] = stu4;
     }
 
+    @Override
     public boolean addStudent(Student stu) {
 
         // 2. 添加学生到数组
