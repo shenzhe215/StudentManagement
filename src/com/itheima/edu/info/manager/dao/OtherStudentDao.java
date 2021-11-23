@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @Description：com.itheima.edu.info.manager.dao
  * @version：1.0
  */
-public class OtherStudentDao extends BaseStudentDao{
+public class OtherStudentDao implements BaseStudentDao{
     // 1. 集合容器
     private static ArrayList<Student> stus = new ArrayList<>();
 

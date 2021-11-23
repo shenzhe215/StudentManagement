@@ -8,7 +8,7 @@ import com.itheima.edu.info.manager.domain.Student;
  * @Description：com.itheima.edu.info.manager.dao
  * @version：1.0
  */
-public abstract class BaseStudentDao {
+public interface BaseStudentDao {
 
     public abstract boolean addStudent(Student stu);
 
